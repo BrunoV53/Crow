@@ -523,13 +523,13 @@ namespace crow
               [self](const asio::error_code& ec, std::size_t /*bytes_transferred*/) {
                   self->res.clear();
                   self->res_body_copy_.clear();                  
-                  if (!continue_requested)
+                  if (!self->continue_requested)
                   {
-                      parser_.clear();
+                      self->parser_.clear();
                   }
                   else
                   {
-                      continue_requested = false;
+                      self->continue_requested = false;
                   }
                   
                   if (!ec)
